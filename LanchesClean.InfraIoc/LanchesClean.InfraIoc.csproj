@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LanchesClean.Application\LanchesClean.Application.csproj" />
+    <ProjectReference Include="..\LanchesClean.Domain\LanchesClean.Domain.csproj" />
+    <ProjectReference Include="..\LanchesClean.InfraData\LanchesClean.InfraData.csproj" />
+  </ItemGroup>
+
+</Project>
