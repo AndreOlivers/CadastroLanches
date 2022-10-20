@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace LanchesClean.Domain.Model
 {
-    public class Lanche : EntitiesBase
+    public sealed class Lanche : EntitiesBase
     {
         public string Name { get; private set; }
         public decimal Price { get; private set; }
@@ -24,11 +24,8 @@ namespace LanchesClean.Domain.Model
 
         public Lanche(string name, decimal price, string description, int inStock, string imagemUrl)
         {
-           
             ValidateDomain(name, price, description, inStock, imagemUrl);
-
         }
-
 
         public Lanche(int id, string name, decimal price, string description, int inStock, string imagemUrl)
         {

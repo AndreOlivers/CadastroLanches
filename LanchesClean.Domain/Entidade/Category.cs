@@ -18,15 +18,15 @@ namespace LanchesClean.Domain.Model
         public ICollection<Lanche> Lanches { get; set; }
 
         //CONSTRUTORES
-        public Category(string name)
+        public Category(string name, string description)
         {
             Name = name;
-            ValidateDomain(name);
+            ValidateDomain(name , description);
         }
 
-        public void Update(string name)
+        public void Update(string name, string description)
         {
-            ValidateDomain(name);
+            ValidateDomain(name, description);
         }
 
         public Category(int id, string name)
@@ -36,7 +36,7 @@ namespace LanchesClean.Domain.Model
             Name = name;
         }
 
-        public void ValidateDomain(string name)
+        public void ValidateDomain(string name, string description)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name),
                 "Invalid name, is Required");
@@ -44,7 +44,14 @@ namespace LanchesClean.Domain.Model
             DomainExceptionValidation.When(name.Length < 3,
                 "Invalid name, Is name too short, minimum 3 caracteres ");
 
+            DomainExceptionValidation.When(description.Length < 5 ,
+                "Invalid description, Is description too short, minimum 5 caracteres");
+
+            DomainExceptionValidation.When(description.Length > 250,
+             "Invalid description, Is description too long, maximum 250 caracteres");
+
             Name = name;
+            Description = description;
         }
     }
 }
